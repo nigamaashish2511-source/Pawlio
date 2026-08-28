@@ -365,6 +365,45 @@ footer p {
     object-fit: contain;
     border-radius: 15px;
 }
+    .product-gallery {
+    width: 100%;
+}
+
+.main-product-image {
+    width: 100%;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f7f7;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.main-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.product-thumbnails img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.product-thumbnails img:hover {
+    border-color: #222;
+}
 </style>
 </head>
 
@@ -415,9 +454,20 @@ footer p {
 
     <div class="product">
 
-        <div class="product-image">
-            <img src="1_1615203197971.jpg" alt="Pawlio Pet Hair Remover">
-        </div>
+        <div class="product-gallery">
+
+    <div class="main-product-image">
+        <img id="mainProductImage" src="1_1615203197971.jpg" alt="Pawlio Pet Hair Remover">
+    </div>
+
+    <div class="product-thumbnails">
+        <img src="1_1615203197971.jpg" onclick="changeProductImage(this.src)" alt="Product">
+        <img src="4_1615203197688.jpg" onclick="changeProductImage(this.src)" alt="Product in use">
+        <img src="5_1615203197687.jpg" onclick="changeProductImage(this.src)" alt="Product demonstration">
+        <img src="11_b94ae03f-39e8-42bb-b066-98e18d51d499.jpg" onclick="changeProductImage(this.src)" alt="Product features">
+    </div>
+
+</div>
 
         <div class="product-info">
 
@@ -570,5 +620,10 @@ footer p {
 
 </footer>
 
+<script>
+function changeProductImage(imageSrc) {
+    document.getElementById("mainProductImage").src = imageSrc;
+}
+</script>
 </body>
 </html>
