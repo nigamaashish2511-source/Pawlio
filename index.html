@@ -1,23 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawlio | Smart Accessories for Happy Pets</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pawlio | Clean Paws. Happy Pets.</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.logo span {
+    margin-left: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+/* HERO */
+.hero {
+    min-height: 600px;
+    padding: 80px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background: #f7f7f5;
+}
+
+.hero-content {
+    max-width: 570px;
+}
+
+.hero-content small {
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 6vw, 75px);
+    line-height: 1.05;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #222;
+    color: white;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+
+.hero-image {
+    width: 430px;
+    height: 430px;
+    background: #e9e9e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 110px;
+}
+
+/* SECTION */
+section {
+    padding: 80px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+}
+
+/* PRODUCT */
+.product {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.product-image {
+    height: 500px;
+    background: #f2f2ef;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+}
+
+.product-info h3 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.product-info p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.features li {
+    margin: 12px 0;
+    font-weight: 600;
+}
+
+/* BENEFITS */
+.benefits {
+    background: #f7f7f5;
+}
+
+.benefit-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.benefit {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.benefit-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.benefit h3 {
+    margin-bottom: 10px;
+}
+
+.benefit p {
+    color: #666;
+}
+
+/* WHY PAWLIO */
+.why {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.why h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.why p {
+    color: #666;
+    font-size: 17px;
+}
+
+/* FAQ */
+.faq {
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 22px 0;
+}
+
+.faq-item h3 {
+    margin-bottom: 8px;
+}
+
+.faq-item p {
+    color: #666;
+}
+
+/* NEWSLETTER */
+.newsletter {
+    text-align: center;
+    background: #222;
+    color: white;
+}
+
+.newsletter p {
+    margin: 15px auto 25px;
+    max-width: 550px;
+    opacity: 0.8;
+}
+
+.newsletter .btn {
+    background: white;
+    color: #222;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    padding: 50px 7%;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+footer p {
+    color: #aaa;
+    margin-top: 8px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #aaa;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 5%;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image {
+        width: 280px;
+        height: 280px;
+        font-size: 70px;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .product {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 350px;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>Welcome to Pawlio 🐾</h1>
+<header>
+    <a href="#" class="logo">Pawlio 🐾</a>
 
-    <h2>Smart Accessories for Happy Pets</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#why">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+        <small>For happier pets & cleaner homes</small>
+
+        <h1>Clean Paws.<br>Happy Pets.</h1>
+
+        <p>
+            Discover smart, practical accessories designed
+            to make everyday life with your pet easier.
+        </p>
+
+        <a href="#shop" class="btn">Shop Paw Cleaner →</a>
+    </div>
+
+    <div class="hero-image">
+        🐶
+    </div>
+
+</section>
+
+
+<section id="shop">
+
+    <div class="section-title">
+        <h2>Our Featured Product</h2>
+        <p>A simple solution for messy paws after every walk.</p>
+    </div>
+
+    <div class="product">
+
+        <div class="product-image">
+            🐾
+        </div>
+
+        <div class="product-info">
+
+            <h3>Portable Paw Cleaner</h3>
+
+            <div class="price">$24.99</div>
+
+            <p>
+                Help keep your home, furniture and car cleaner
+                after outdoor adventures with your furry friend.
+            </p>
+
+            <ul class="features">
+                <li>✓ Easy to use</li>
+                <li>✓ Reusable design</li>
+                <li>✓ Portable & travel friendly</li>
+                <li>✓ Suitable for everyday use</li>
+            </ul>
+
+            <a href="#" class="btn">Shop Now →</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="benefits">
+
+    <div class="section-title">
+        <h2>Why Pet Owners Love Pawlio</h2>
+        <p>Designed around real everyday pet-owner problems.</p>
+    </div>
+
+    <div class="benefit-grid">
+
+        <div class="benefit">
+            <div class="benefit-icon">🐾</div>
+            <h3>Pet Friendly</h3>
+            <p>Products selected with your pet's comfort in mind.</p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">✨</div>
+            <h3>Simple & Practical</h3>
+            <p>Useful products that make everyday routines easier.</p>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🌎</div>
+            <h3>Worldwide Delivery</h3>
+            <p>We aim to make Pawlio products available worldwide.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="why">
+
+    <div class="why">
+
+        <h2>Made for Pet Parents</h2>
+
+        <p>
+            At Pawlio, we're building a collection of practical
+            pet accessories that help make life with your furry
+            companions cleaner, easier and more enjoyable.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="faq">
+
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq">
+
+        <div class="faq-item">
+            <h3>Do you ship internationally?</h3>
+            <p>
+                Yes. Pawlio is being built for customers around the world.
+                Available destinations and delivery times will be shown
+                before checkout.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How long does delivery take?</h3>
+            <p>
+                Delivery time depends on your location and shipping method.
+                Exact estimates will be provided once our shipping system
+                is connected.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How can I track my order?</h3>
+            <p>
+                Once your order is shipped, you'll receive tracking
+                information when available.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="newsletter">
+
+    <h2>Join the Pawlio Family 🐾</h2>
 
     <p>
-        Discover useful, stylish and practical products
-        designed to make life better for pets and their owners.
+        Be the first to discover new pet accessories,
+        special offers and useful tips.
     </p>
 
-    <button>Shop Now</button>
+    <a href="#contact" class="btn">Stay Updated →</a>
+
+</section>
+
+</main>
+
+
+<footer id="contact">
+
+    <div class="footer-content">
+
+        <div>
+            <h2>Pawlio 🐾</h2>
+            <p>Smart accessories for happy pets.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="mailto:hello@pawlio.com">Contact</a>
+        </div>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
